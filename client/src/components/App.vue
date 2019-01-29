@@ -1,12 +1,22 @@
 <template>
   <div class="app">
-    Hello from a Vue component
+    <main-header/>
   </div>
 </template>
 
+<script>
+import MainHeader from './layout/main-header.vue'
+export default {
+  components: { MainHeader }
+}
+</script>
+
 <style lang="scss">
+@import "~#/scss/app.scss";
 .app {
-  background: red;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 </style>
 
