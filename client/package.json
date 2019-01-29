@@ -19,6 +19,7 @@
   },
   "scripts": {
     "dev": "nodemon dev-server.js",
-    "build": "webpack --config build/webpack.prod.config.js"
+    "build": "webpack --config build/webpack.prod.config.js",
+    "test": ""
   }
 }

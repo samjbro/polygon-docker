@@ -2,6 +2,12 @@ sudo: required
 services:
   - docker
 
+before_install:
+  - docker build -t samjbro/client-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run samjbro/client-test npm test
+
 after_success:
   - docker build -t samjbro/polygon-client ./client
   - docker build -t samjbro/polygon-nginx ./nginx
