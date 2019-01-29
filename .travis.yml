@@ -1,0 +1,23 @@
+sudo: required
+services:
+  - docker
+
+after_success:
+  - docker build -t samjbro/polygon-client ./client
+  - docker build -t samjbro/polygon-nginx ./nginx
+  - echo $DOCKER_PASSWORD | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push samjbro/polygon-client
+  - docker push samjbro/polygon-nginx
+
+deploy:
+  provider: elasticbeanstalk
+  region: eu-west-2
+  app: multi-docker
+  env: Polygon
+  bucket_name: elasticbeanstalk-eu-west-2-230836431314
+  bucket_path: polygon
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
