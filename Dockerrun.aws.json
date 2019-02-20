@@ -3,14 +3,14 @@
   "containerDefinitions": [
     {
       "name": "client",
-      "image": "samjbro/polygon-client",
+      "image": "samjbro/koel-client",
       "hostname": "client",
       "essential": false,
       "memory": 128
     },
     {
       "name": "nginx",
-      "image": "samjbro/polygon-nginx",
+      "image": "samjbro/koel-nginx",
       "essential": true,
       "portMappings": [
         {
